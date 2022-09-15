@@ -1,8 +1,10 @@
 import json
 import asyncio
-import aiohttp
 import re
 import getpass
+import os
+
+import aiohttp
 import riot_auth
 
 region = 'eu'
@@ -28,9 +30,17 @@ async def amain(formuser, formpass):
                     'https://valorant-api.com/v1/weapons/skinlevels/' + item) as r:
                 skin = json.loads(await r.text())['data']
                 print(f'skin {i}: {skin["displayName"]}')
+                if skin['displayIcon']:
+                    print(f'  icon: {skin["displayIcon"]}')
+                if skin['streamedVideo']:
+                    print(f'  video: {skin["streamedVideo"]}')
 
 def main():
-    riotuser = input('user: ')
-    riotpass = getpass.getpass('pass: ')
+    riotuser = os.getenv('RIOTUSER')
+    if not riotuser:
+        riotuser = input('user: ')
+    riotpass = os.getenv('RIOTPASS')
+    if not riotpass:
+        riotpass = getpass.getpass('pass: ')
 
     asyncio.run(amain(riotuser, riotpass))
