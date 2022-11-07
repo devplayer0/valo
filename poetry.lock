@@ -88,7 +88,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "riot-auth"
-version = "1.0.1"
+version = "1.0.2"
 description = "\"A library to get various Riot tokens and get around Cloudflare's filter during auth.\""
 category = "main"
 optional = false
@@ -102,7 +102,7 @@ aiohttp = ">=3.7.0"
 type = "git"
 url = "https://github.com/floxay/python-riot-auth.git"
 reference = "main"
-resolved_reference = "3fea6a47930391c129a8e3da6d6d50e5d4e7c138"
+resolved_reference = "a0bda68741ff1f9ff17b6a3d461779740cd34c2f"
 
 [[package]]
 name = "yarl"
