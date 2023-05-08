@@ -11,6 +11,7 @@ region = 'eu'
 
 async def amain(formuser, formpass):
     auth = riot_auth.RiotAuth()
+    auth.RIOT_CLIENT_USER_AGENT = "RiotClient/64.0.10.5036631.232 %s (Windows;10;;Professional, x64"
     await auth.authorize(formuser, formpass)
 
     async with aiohttp.ClientSession() as session:
